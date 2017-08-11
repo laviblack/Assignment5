@@ -118,10 +118,12 @@
             // 
             this.HeightTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.HeightTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.HeightTextBox.Location = new System.Drawing.Point(43, 93);
             this.HeightTextBox.Name = "HeightTextBox";
             this.HeightTextBox.Size = new System.Drawing.Size(100, 67);
             this.HeightTextBox.TabIndex = 4;
+            this.HeightTextBox.TextChanged += new System.EventHandler(this.HeightTextBox_TextChanged);
             // 
             // WeightTextBox
             // 
@@ -131,6 +133,7 @@
             this.WeightTextBox.Name = "WeightTextBox";
             this.WeightTextBox.Size = new System.Drawing.Size(100, 67);
             this.WeightTextBox.TabIndex = 5;
+            this.WeightTextBox.TextChanged += new System.EventHandler(this.WeightTextBox_TextChanged);
             // 
             // CalculateBMIButton
             // 
