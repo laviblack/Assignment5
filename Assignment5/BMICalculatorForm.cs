@@ -13,7 +13,7 @@ using System.Windows.Forms;
  ID: 300923951
  Date: August 11, 2017
  Description: Assignment 5 - BMI Calculator Project 
- Version: 0.3 - Added the event handler to validate the input
+ Version: 0.4 - Added the event handler for CalculateBMIButton clicked
      */
 
 namespace Assignment5
@@ -25,6 +25,8 @@ namespace Assignment5
         private Color _nomalColor = Color.FromArgb(255, 255, 255);
         private double _height;
         private double _weight;
+        private bool _isValid;
+        private double _result;
 
         // PUBLIC PROPERTIES
         public Color ErrorColor
@@ -64,6 +66,30 @@ namespace Assignment5
             set
             {
                 this._weight = value;
+            }
+        }
+
+        public bool IsValid
+        {
+            get
+            {
+                return this._isValid;
+            }
+            set
+            {
+                this._isValid = value;
+            }
+        }
+
+        public double Result
+        {
+            get
+            {
+                return this._result;
+            }
+            set
+            {
+                this._result = value; 
             }
         }
 
@@ -110,6 +136,7 @@ namespace Assignment5
             catch (Exception exception)
             {
                 HeightTextBox.BackColor = this.ErrorColor;
+                this.IsValid = false;
             }
         }
 
@@ -128,6 +155,55 @@ namespace Assignment5
             catch (Exception exception)
             {
                 WeightTextBox.BackColor = this.ErrorColor;
+                this.IsValid = false;
+            }
+        }
+
+        /// <summary>
+        /// This is the event handler for when CalculateBMIButton clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CalculateBMIButton_Click(object sender, EventArgs e)
+        {
+            BMIResultTextBox.Text = string.Empty;
+            this._validation();
+            if(this.IsValid)
+            {
+                this._calculate();
+            }
+        }
+
+        /// <summary>
+        /// This method calculates the BMI
+        /// </summary>
+        private void _calculate()
+        {
+            if (ImperialRadioButton.Checked)
+            {
+                this.Result = this.WeightValue * 703 / this.HeightValue / this.HeightValue;
+            }
+            else if (MetricRadioButton.Checked)
+            {
+                this.Result = this.WeightValue / this.HeightValue / this.HeightValue;
+            }
+            BMIResultTextBox.Text = this.Result.ToString();
+        }
+
+        /// <summary>
+        /// This method validates the user input
+        /// </summary>
+        private void _validation()
+        {
+            if(HeightTextBox.Text == string.Empty)
+            {
+                HeightTextBox.BackColor = this.ErrorColor;
+                this.IsValid = false;
+            }
+            if(WeightTextBox.Text == string.Empty)
+            {
+                WeightTextBox.BackColor = this.ErrorColor;
+                this.IsValid = false;
             }
         }
     }
