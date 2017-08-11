@@ -222,15 +222,16 @@
             // 
             // ScaleResultTextLabel
             // 
-            this.ScaleResultTextLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.ScaleResultTextLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ScaleResultTextLabel.AutoSize = true;
             this.BMICaluculatorTableLayout.SetColumnSpan(this.ScaleResultTextLabel, 2);
             this.ScaleResultTextLabel.Location = new System.Drawing.Point(3, 360);
             this.ScaleResultTextLabel.Name = "ScaleResultTextLabel";
-            this.ScaleResultTextLabel.Size = new System.Drawing.Size(0, 53);
+            this.ScaleResultTextLabel.Size = new System.Drawing.Size(287, 53);
             this.ScaleResultTextLabel.TabIndex = 12;
-            this.ScaleResultTextLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ScaleResultTextLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ResetButton
             // 

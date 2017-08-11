@@ -13,7 +13,7 @@ using System.Windows.Forms;
  ID: 300923951
  Date: August 11, 2017
  Description: Assignment 5 - BMI Calculator Project 
- Version: 0.5 - Added the event handler for ResetButton clicked
+ Version: 0.6 - Added the _showScaleResult method
      */
 
 namespace Assignment5
@@ -132,6 +132,7 @@ namespace Assignment5
             {
                 HeightTextBox.BackColor = this.NomalColor;
                 this.HeightValue = double.Parse(HeightTextBox.Text);
+                this.IsValid = true;
             }
             catch (Exception exception)
             {
@@ -151,6 +152,7 @@ namespace Assignment5
             {
                 WeightTextBox.BackColor = this.NomalColor;
                 this.WeightValue = double.Parse(WeightTextBox.Text);
+                this.IsValid = true;
             }
             catch (Exception exception)
             {
@@ -167,13 +169,41 @@ namespace Assignment5
         private void CalculateBMIButton_Click(object sender, EventArgs e)
         {
             BMIResultTextBox.Text = string.Empty;
+            ScaleResultTextLabel.Text = string.Empty;
             this._validation();
             if(this.IsValid)
             {
                 this._calculate();
+                this._showScaleResult();
             }
         }
 
+        /// <summary>
+        /// This method shows the scale result depending on the BMI calculated
+        /// </summary>
+        private void _showScaleResult()
+        {
+            if(this.Result < 18.5)
+            {
+                ScaleResultTextLabel.Text = "Underweight";
+                ScaleResultTextLabel.ForeColor = Color.FromArgb(30, 144, 255);
+            }
+            else if(this.Result < 25)
+            {
+                ScaleResultTextLabel.Text = "Normal";
+                ScaleResultTextLabel.ForeColor = Color.FromArgb(50, 205, 50);
+            }
+            else if(this.Result < 30)
+            {
+                ScaleResultTextLabel.Text = "Overweight";
+                ScaleResultTextLabel.ForeColor = Color.FromArgb(255, 200, 0);
+            }
+            else
+            {
+                ScaleResultTextLabel.Text = "Obese";
+                ScaleResultTextLabel.ForeColor = Color.FromArgb(220, 20, 60);
+            }
+        }
         /// <summary>
         /// This method calculates the BMI
         /// </summary>
@@ -226,6 +256,7 @@ namespace Assignment5
             HeightTextBox.BackColor = this.NomalColor;
             WeightTextBox.Text = string.Empty;
             WeightTextBox.BackColor = this.NomalColor;
+            ScaleResultTextLabel.Text = string.Empty;
             BMIResultTextBox.Text = string.Empty;
             this.IsValid = true;
         }
