@@ -13,7 +13,7 @@ using System.Windows.Forms;
  ID: 300923951
  Date: August 11, 2017
  Description: Assignment 5 - BMI Calculator Project 
- Version: 0.4 - Added the event handler for CalculateBMIButton clicked
+ Version: 0.5 - Added the event handler for ResetButton clicked
      */
 
 namespace Assignment5
@@ -205,6 +205,39 @@ namespace Assignment5
                 WeightTextBox.BackColor = this.ErrorColor;
                 this.IsValid = false;
             }
+        }
+
+        /// <summary>
+        /// This is the event handler for when reset button clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ResetButton_Click(object sender, EventArgs e)
+        {
+            this._reset();
+        }
+
+        /// <summary>
+        /// This method resets all input
+        /// </summary>
+        private void _reset()
+        {
+            HeightTextBox.Text = string.Empty;
+            HeightTextBox.BackColor = this.NomalColor;
+            WeightTextBox.Text = string.Empty;
+            WeightTextBox.BackColor = this.NomalColor;
+            BMIResultTextBox.Text = string.Empty;
+            this.IsValid = true;
+        }
+
+        /// <summary>
+        /// This is the event handler for when the BMI calculator loaded
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BMICalculatorForm_Load(object sender, EventArgs e)
+        {
+            this._reset();
         }
     }
 }

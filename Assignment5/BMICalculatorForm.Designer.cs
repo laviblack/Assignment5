@@ -245,6 +245,7 @@
             this.ResetButton.TabIndex = 13;
             this.ResetButton.Text = "Reset";
             this.ResetButton.UseVisualStyleBackColor = false;
+            this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
             // 
             // BMIResultTextBox
             // 
@@ -269,6 +270,7 @@
             this.Name = "BMICalculatorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BMI Calculator";
+            this.Load += new System.EventHandler(this.BMICalculatorForm_Load);
             this.BMICaluculatorTableLayout.ResumeLayout(false);
             this.BMICaluculatorTableLayout.PerformLayout();
             this.ResumeLayout(false);
