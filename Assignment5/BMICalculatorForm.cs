@@ -13,7 +13,7 @@ using System.Windows.Forms;
  ID: 300923951
  Date: August 11, 2017
  Description: Assignment 5 - BMI Calculator Project 
- Version: 0.6 - Added the _showScaleResult method
+ Version: 0.7 - Added the event handler for "FormClosing"
      */
 
 namespace Assignment5
@@ -97,6 +97,16 @@ namespace Assignment5
         public BMICalculatorForm()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// This is an event handler for the "FormClosing" event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BMICalculatorForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
 
         /// <summary>
