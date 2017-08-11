@@ -49,8 +49,8 @@
             // BMICaluculatorTableLayout
             // 
             this.BMICaluculatorTableLayout.ColumnCount = 2;
-            this.BMICaluculatorTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.BMICaluculatorTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.BMICaluculatorTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.BMICaluculatorTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.BMICaluculatorTableLayout.Controls.Add(this.ImperialRadioButton, 0, 0);
             this.BMICaluculatorTableLayout.Controls.Add(this.MetricRadioButton, 1, 0);
             this.BMICaluculatorTableLayout.Controls.Add(this.HeightLabel, 0, 1);
@@ -85,22 +85,24 @@
             this.ImperialRadioButton.AutoSize = true;
             this.ImperialRadioButton.Location = new System.Drawing.Point(3, 3);
             this.ImperialRadioButton.Name = "ImperialRadioButton";
-            this.ImperialRadioButton.Size = new System.Drawing.Size(169, 39);
+            this.ImperialRadioButton.Size = new System.Drawing.Size(140, 39);
             this.ImperialRadioButton.TabIndex = 0;
             this.ImperialRadioButton.TabStop = true;
             this.ImperialRadioButton.Text = "Imperial";
             this.ImperialRadioButton.UseVisualStyleBackColor = true;
+            this.ImperialRadioButton.CheckedChanged += new System.EventHandler(this.ImperialRadioButton_CheckedChanged);
             // 
             // MetricRadioButton
             // 
             this.MetricRadioButton.AutoSize = true;
-            this.MetricRadioButton.Location = new System.Drawing.Point(178, 3);
+            this.MetricRadioButton.Location = new System.Drawing.Point(149, 3);
             this.MetricRadioButton.Name = "MetricRadioButton";
-            this.MetricRadioButton.Size = new System.Drawing.Size(112, 39);
+            this.MetricRadioButton.Size = new System.Drawing.Size(141, 39);
             this.MetricRadioButton.TabIndex = 1;
             this.MetricRadioButton.TabStop = true;
             this.MetricRadioButton.Text = "Metric";
             this.MetricRadioButton.UseVisualStyleBackColor = true;
+            this.MetricRadioButton.CheckedChanged += new System.EventHandler(this.MetricRadioButton_CheckedChanged);
             // 
             // HeightLabel
             // 
@@ -116,7 +118,7 @@
             // 
             this.HeightTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.HeightTextBox.Location = new System.Drawing.Point(72, 93);
+            this.HeightTextBox.Location = new System.Drawing.Point(43, 93);
             this.HeightTextBox.Name = "HeightTextBox";
             this.HeightTextBox.Size = new System.Drawing.Size(100, 67);
             this.HeightTextBox.TabIndex = 4;
@@ -125,7 +127,7 @@
             // 
             this.WeightTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.WeightTextBox.Location = new System.Drawing.Point(72, 183);
+            this.WeightTextBox.Location = new System.Drawing.Point(43, 183);
             this.WeightTextBox.Name = "WeightTextBox";
             this.WeightTextBox.Size = new System.Drawing.Size(100, 67);
             this.WeightTextBox.TabIndex = 5;
@@ -139,7 +141,7 @@
             this.CalculateBMIButton.ForeColor = System.Drawing.Color.White;
             this.CalculateBMIButton.Location = new System.Drawing.Point(3, 228);
             this.CalculateBMIButton.Name = "CalculateBMIButton";
-            this.CalculateBMIButton.Size = new System.Drawing.Size(169, 39);
+            this.CalculateBMIButton.Size = new System.Drawing.Size(140, 39);
             this.CalculateBMIButton.TabIndex = 6;
             this.CalculateBMIButton.Text = "Calculate";
             this.CalculateBMIButton.UseVisualStyleBackColor = false;
@@ -157,18 +159,18 @@
             // HeightUnitLabel
             // 
             this.HeightUnitLabel.AutoSize = true;
-            this.HeightUnitLabel.Location = new System.Drawing.Point(178, 90);
+            this.HeightUnitLabel.Location = new System.Drawing.Point(149, 90);
             this.HeightUnitLabel.Name = "HeightUnitLabel";
-            this.HeightUnitLabel.Size = new System.Drawing.Size(112, 45);
+            this.HeightUnitLabel.Size = new System.Drawing.Size(125, 45);
             this.HeightUnitLabel.TabIndex = 8;
             this.HeightUnitLabel.Text = "inches";
             // 
             // WeightUnitLabel
             // 
             this.WeightUnitLabel.AutoSize = true;
-            this.WeightUnitLabel.Location = new System.Drawing.Point(178, 180);
+            this.WeightUnitLabel.Location = new System.Drawing.Point(149, 180);
             this.WeightUnitLabel.Name = "WeightUnitLabel";
-            this.WeightUnitLabel.Size = new System.Drawing.Size(85, 45);
+            this.WeightUnitLabel.Size = new System.Drawing.Size(114, 45);
             this.WeightUnitLabel.TabIndex = 9;
             this.WeightUnitLabel.Text = "pounds";
             // 
@@ -177,9 +179,9 @@
             this.BMIResultLabel.AutoSize = true;
             this.BMIResultLabel.Location = new System.Drawing.Point(3, 270);
             this.BMIResultLabel.Name = "BMIResultLabel";
-            this.BMIResultLabel.Size = new System.Drawing.Size(152, 45);
+            this.BMIResultLabel.Size = new System.Drawing.Size(138, 45);
             this.BMIResultLabel.TabIndex = 10;
-            this.BMIResultLabel.Text = "Your BMI is";
+            this.BMIResultLabel.Text = "Your BMI";
             // 
             // ScaleResultLabel
             // 
@@ -207,16 +209,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ResetButton.BackColor = System.Drawing.Color.Navy;
             this.ResetButton.ForeColor = System.Drawing.Color.White;
-            this.ResetButton.Location = new System.Drawing.Point(178, 228);
+            this.ResetButton.Location = new System.Drawing.Point(149, 228);
             this.ResetButton.Name = "ResetButton";
-            this.ResetButton.Size = new System.Drawing.Size(112, 39);
+            this.ResetButton.Size = new System.Drawing.Size(141, 39);
             this.ResetButton.TabIndex = 13;
             this.ResetButton.Text = "Reset";
             this.ResetButton.UseVisualStyleBackColor = false;
             // 
             // BMIResultTextBox
             // 
-            this.BMIResultTextBox.Location = new System.Drawing.Point(178, 273);
+            this.BMIResultTextBox.Location = new System.Drawing.Point(149, 273);
             this.BMIResultTextBox.Name = "BMIResultTextBox";
             this.BMIResultTextBox.Size = new System.Drawing.Size(100, 67);
             this.BMIResultTextBox.TabIndex = 14;
